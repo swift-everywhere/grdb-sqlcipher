@@ -28,7 +28,7 @@ if ProcessInfo.processInfo.environment["SPI_BUILDER"] == "1" {
 }
 
 // whether the "GRDBCIPHER" should be enabled by default; used for testing
-var GRDBCIPHERENV = (ProcessInfo.processInfo.environment["GRDBCIPHER"] ?? "0") != "0"
+var GRDBCIPHERENV = (ProcessInfo.processInfo.environment["GRDBCIPHER"] ?? "1") != "0"
 var GRDBDependencies: [Target.Dependency] = ["GRDBSQLite"]
 GRDBDependencies += [.product(name: "SQLCipher", package: "swift-sqlcipher", condition: .when(traits: ["GRDBCIPHER"]))]
 dependencies.append(.package(url: "https://github.com/skiptools/swift-sqlcipher.git", from: "1.3.0"))
